@@ -12,7 +12,6 @@
         $cnpj = $_POST['cnpj'];
         $sg_estado = $_POST['estado'];
         $endereco = $_POST['endereco'];
-        /*
         if($_FILES['foto']['name'] != ''){
             $test = explode('.', $_FILES['foto']['name']);
             $extensao = end($test);
@@ -21,13 +20,12 @@
                 $local = 'foto/'.$nome;
                 move_uploaded_file($_FILES['foto']['tmp_name'], $local);
             }
-        } */
-        echo $sg_estado;
-        $query = "insert into tb_usuario (nm_usuario,telefone,email,senha,sg_estado,endereco,cpf,cnpj,complemento) values ('$nome','$telefone','$email','$senha','$sg_estado','$endereco','$cpf','$cnpj','$complemento')";
+        } 
+
+        $query = "insert into tb_usuario (nm_usuario,telefone,email,senha,sg_estado,endereco,cpf,cnpj,complemento,url) values ('$nome','$telefone','$email','$senha','$sg_estado','$endereco','$cpf','$cnpj','$complemento','$local')";
 
         mysqli_query($conecta,$query) or die(mysqli_error($conecta));
-        //echo "Cadastro realizado com sucesso";
-        //echo $query;
+        
     } catch (Exception $e ) {
         echo "Erro ao cadastrar: ".$e;
     }
