@@ -3,7 +3,7 @@
         $conecta = mysqli_connect("localhost","id10375079_goodpartybd","AAAAAA","id10375079_goodparty");
                                 //servidor , usuario banco, senha, nome do banco
                              
-        $nome = $_POST['nome'];
+        $nomeUsuario = $_POST['nomeUsuario'];
         $senha = $_POST['senha'];
         $email = $_POST['email'];
         $telefone = $_POST['telefone'];
@@ -22,7 +22,7 @@
             }
         } 
 
-        $query = "insert into tb_usuario (nm_usuario,telefone,email,senha,sg_estado,endereco,cpf,cnpj,complemento,url) values ('$nome','$telefone','$email',md5('$senha'),'$sg_estado','$endereco','$cpf','$cnpj','$complemento','$local')";
+        $query = "insert into tb_usuario (nm_usuario,telefone,email,senha,sg_estado,endereco,cpf,cnpj,complemento,url) values ('$nomeUsuario','$telefone','$email',md5('$senha'),'$sg_estado','$endereco','$cpf','$cnpj','$complemento','$local')";
      
         mysqli_query($conecta,$query) or die(mysqli_error($conecta));
         
