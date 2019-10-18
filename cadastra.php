@@ -22,8 +22,8 @@
             }
         } 
 
-        $query = "insert into tb_usuario (nm_usuario,telefone,email,senha,sg_estado,endereco,cpf,cnpj,complemento,url) values ('$nome','$telefone','$email','$senha','$sg_estado','$endereco','$cpf','$cnpj','$complemento','$local')";
-
+        $query = "insert into tb_usuario (nm_usuario,telefone,email,senha,sg_estado,endereco,cpf,cnpj,complemento,url) values ('$nome','$telefone','$email',md5('$senha'),'$sg_estado','$endereco','$cpf','$cnpj','$complemento','$local')";
+     
         mysqli_query($conecta,$query) or die(mysqli_error($conecta));
         
     } catch (Exception $e ) {
