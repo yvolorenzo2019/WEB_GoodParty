@@ -5,20 +5,17 @@
     
         
        //Consultando banco de dados
-    $query =  "SELECT * FROM tb_produto ";   
+    $query =  "SELECT cd_usuario,nm_usuario,url FROM tb_usuario WHERE cd_usuario = 67";   
     $resultado = mysqli_query($conecta, $query);
     $registro = array(
-       'produto'=>array()
+       'pessoa'=>array()
     );  
     $i = 0;
     while($linha = mysqli_fetch_assoc($resultado)){
-      $registro['produto'][$i] = array(
-        'codigo' => $linha['cd_produto'],
-        'produto' => $linha['nm_produto'],
-        'descricao' => $linha['descri'],
-        'quantidade' => $linha['tipo_quantidade'],
-        'valor' => $linha['valor'],
-        'foto' => $linha['url_img']
+      $registro['pessoa'][$i] = array(
+        'codigo' => $linha['cd_usuario'],
+        'nome' => $linha['nm_usuario'],
+        'foto' => $linha['url'],
       );
       $i++;
     }
